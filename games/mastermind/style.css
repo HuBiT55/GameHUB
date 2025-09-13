@@ -1,0 +1,525 @@
+/* Mastermind Game Styles */
+body {
+    background-color: #0d1117;
+    color: #24d27a;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.game-header h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #24d27a;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+.help-button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+}
+
+.help-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.back-button {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    background-color: #161b22;
+    border: 2px solid #24d27a;
+    box-shadow: 0 0 20px rgba(36, 210, 122, 0.5);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+.game-board, .input-area, .info-panel {
+    border-bottom: 1px dashed #24d27a;
+    padding-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.game-board:last-of-type, .input-area:last-of-type, .info-panel:last-of-type {
+    border-bottom: none;
+}
+
+.game-board {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.attempts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.attempt-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.guessed-code-digit {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #24d27a;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.feedback-pins {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+    flex-wrap: wrap;
+}
+
+.pin {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #24d27a;
+    flex-shrink: 0;
+}
+
+.black-pin {
+    background-color: #24d27a;
+}
+
+.white-pin {
+    background-color: #58a6ff;
+}
+
+.code-input {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.code-digit {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #24d27a;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #24d27a;
+    caret-color: #24d27a;
+}
+
+.code-digit:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(36, 210, 122, 0.8);
+}
+
+.check-button, .reset-button {
+    background-color: #24d27a;
+    color: #0d1117;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.check-button:hover, .reset-button:hover {
+    background-color: #58a6ff;
+    transform: scale(1.05);
+}
+
+.message-area {
+    font-size: 1.1rem;
+    color: #fff;
+    text-align: center;
+}
+
+.stats {
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-wrapper {
+        padding: 5px;
+    }
+    
+    .game-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .game-container {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .code-digit {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .guessed-code-digit {
+        width: 20px;
+        height: 20px;
+        font-size: 0.8rem;
+    }
+    
+    .pin {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .attempts-container {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .code-digit {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .guessed-code-digit {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+    }
+    
+    .pin {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .attempts-container {
+        max-height: 150px;
+    }
+}
+
+/* Instructions Modal */
+.instructions-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.instructions-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.instructions-modal .modal-content {
+    background: #161b22;
+    border: 2px solid #24d27a;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(36, 210, 122, 0.5);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.instructions-modal .modal-header {
+    background: linear-gradient(45deg, #24d27a, #58a6ff);
+    color: #0d1117;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #24d27a;
+}
+
+.instructions-modal .modal-header h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.instructions-modal .close-button {
+    background: none;
+    border: none;
+    color: #0d1117;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.instructions-modal .close-button:hover {
+    background: rgba(13, 17, 23, 0.2);
+}
+
+.instructions-modal .modal-body {
+    padding: 30px;
+    max-height: 60vh;
+    overflow-y: auto;
+    color: #fff;
+}
+
+.instruction-section {
+    margin-bottom: 25px;
+}
+
+.instruction-section h3 {
+    color: #24d27a;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #24d27a;
+    padding-bottom: 5px;
+}
+
+.instruction-section p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.instruction-section ol, .instruction-section ul {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.instruction-section li {
+    margin-bottom: 8px;
+}
+
+.hint-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.hint-example {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(36, 210, 122, 0.1);
+    border-radius: 8px;
+    border: 1px solid #24d27a;
+}
+
+.hint-pin {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #24d27a;
+    flex-shrink: 0;
+}
+
+.hint-pin.black-pin {
+    background-color: #24d27a;
+}
+
+.hint-pin.white-pin {
+    background-color: #58a6ff;
+}
+
+.example {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(36, 210, 122, 0.05);
+    border-radius: 8px;
+    border: 1px solid #24d27a;
+}
+
+.example-attempt {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.example-code {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #24d27a;
+    background: rgba(36, 210, 122, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.example-hints {
+    display: flex;
+    gap: 5px;
+}
+
+.example-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-style: italic;
+}
+
+.modal-footer {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #24d27a;
+    background: rgba(36, 210, 122, 0.05);
+}
+
+.start-button {
+    background: linear-gradient(45deg, #24d27a, #58a6ff);
+    color: #0d1117;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(36, 210, 122, 0.4);
+}
+
+/* Responsive for modal */
+@media (max-width: 768px) {
+    .instructions-modal .modal-content {
+        max-width: 95vw;
+        margin: 10px;
+    }
+    
+    .instructions-modal .modal-body {
+        padding: 20px;
+    }
+    
+    .instruction-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .hint-example {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .example-attempt {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHUB - Kolekcja Minigier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>GameHUB</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Strona główna</a>
+                <a href="#games" class="nav-link">Gry</a>
+                <a href="#about" class="nav-link">O nas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Witaj w <span class="gradient-text">GameHUB</span></h1>
+            <p class="hero-subtitle">Kolekcja ekscytujących minigier dla każdego</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToGames()">Zagraj teraz</button>
+                <button class="btn btn-secondary" onclick="scrollToAbout()">Dowiedz się więcej</button>
+            </div>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-game-icon">🎮</div>
+            <div class="floating-game-icon">🎯</div>
+            <div class="floating-game-icon">🧩</div>
+            <div class="floating-game-icon">🎲</div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2 class="section-title">Nasze Gry</h2>
+            <p class="section-subtitle">Wybierz grę i zacznij zabawę!</p>
+            
+            <div class="games-grid">
+                <!-- Mastermind Game Card -->
+                <a href="games/mastermind/index.html" class="game-card">
+                    <div class="game-icon">🔐</div>
+                    <h3 class="game-title">Szyfr Mastermind</h3>
+                    <p class="game-description">Złam tajny kod w jak najmniejszej liczbie prób. Logiczne myślenie i strategia to klucz do sukcesu!</p>
+                    <div class="game-tags">
+                        <span class="tag">Logika</span>
+                        <span class="tag">Strategia</span>
+                        <span class="tag">Łatwa</span>
+                    </div>
+                    <button class="play-button">Graj</button>
+                </a>
+
+                <!-- Placeholder for future games -->
+                <a href="games/snake/index.html" class="game-card coming-soon">
+                    <div class="game-icon">🎯</div>
+                    <h3 class="game-title">Snake Classic</h3>
+                    <p class="game-description">Klasyczna gra Snake w nowoczesnej odsłonie. Zbieraj jabuszka i rośnij!</p>
+                    <div class="game-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Refleks</span>
+                        <span class="tag">Wkrótce</span>
+                    </div>
+                    <button class="play-button disabled">Wkrótce</button>
+                </a>
+
+                <a href="games/tetris/index.html" class="game-card coming-soon">
+                    <div class="game-icon">🧩</div>
+                    <h3 class="game-title">Tetris</h3>
+                    <p class="game-description">Układaj klocki i zdobywaj punkty w tej kultowej grze logicznej.</p>
+                    <div class="game-tags">
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Szybkość</span>
+                        <span class="tag">Wkrótce</span>
+                    </div>
+                    <button class="play-button disabled">Wkrótce</button>
+                </a>
+
+                <a href="games/memory/index.html" class="game-card coming-soon">
+                    <div class="game-icon">🎲</div>
+                    <h3 class="game-title">Memory Game</h3>
+                    <p class="game-description">Trening pamięci w formie gry. Znajdź wszystkie pary kart!</p>
+                    <div class="game-tags">
+                        <span class="tag">Pamięć</span>
+                        <span class="tag">Koncentracja</span>
+                        <span class="tag">Wkrótce</span>
+                    </div>
+                    <button class="play-button disabled">Wkrótce</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">O GameHUB</h2>
+                    <p class="about-description">
+                        GameHUB to platforma stworzona z myślą o miłośnikach gier wszelkiego rodzaju. 
+                        Oferujemy kolekcję starannie wyselekcjonowanych minigier, które zapewnią Ci 
+                        godziny rozrywki i wyzwań.
+                    </p>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">⚡</div>
+                            <h4>Szybki dostęp</h4>
+                            <p>Graj natychmiast bez rejestracji</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎨</div>
+                            <h4>Nowoczesny design</h4>
+                            <p>Intuicyjny i piękny interfejs</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📱</div>
+                            <h4>Responsywny</h4>
+                            <p>Działa na wszystkich urządzeniach</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GameHUB</h3>
+                    <p>Twoja platforma do minigier</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Gry</h4>
+                    <ul>
+                        <li><a href="games/mastermind/index.html">Mastermind</a></li>
+                        <li><a href="games/snake/index.html">Snake (wkrótce)</a></li>
+                        <li><a href="games/tetris/index.html">Tetris (wkrótce)</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> GameHUB. Wszystkie prawa zastrzeżone.</p>
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
