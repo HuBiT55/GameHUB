@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 - GameHUB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>GameHUB</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <button class="btn btn-secondary" onclick="resetGame()">
+                    <i class="fas fa-redo"></i>
+                    Nowa gra
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <h1 class="game-title">2048</h1>
+            <p class="game-subtitle">Połącz kafelki i zdobądź 2048</p>
+        </div>
+
+        <!-- Game Stats -->
+        <div class="game-stats">
+            <div class="stat-box">
+                <div class="stat-label">Wynik</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Najlepszy</div>
+                <div class="stat-value" id="best-score">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Ruchy</div>
+                <div class="stat-value" id="moves">0</div>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board-container">
+            <div class="game-board" id="game-board">
+                <!-- Game tiles will be generated here -->
+            </div>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+            <div class="control-info">
+                <p><i class="fas fa-keyboard"></i> Używaj strzałek lub WASD do poruszania</p>
+            </div>
+            <div class="control-buttons">
+                <button class="btn btn-primary" onclick="resetGame()">
+                    <i class="fas fa-play"></i>
+                    Nowa gra
+                </button>
+                <button class="btn btn-secondary" onclick="togglePause()" id="pause-btn">
+                    <i class="fas fa-pause"></i>
+                    Pauza
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal" id="game-over-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Gratulacje!</h2>
+                    <button class="close-btn" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-icon" id="modal-icon">🎉</div>
+                    <p id="modal-message">Udało Ci się osiągnąć 2048!</p>
+                    <div class="final-stats">
+                        <div class="final-stat">
+                            <span class="final-stat-label">Wynik:</span>
+                            <span class="final-stat-value" id="final-score">0</span>
+                        </div>
+                        <div class="final-stat">
+                            <span class="final-stat-label">Ruchy:</span>
+                            <span class="final-stat-value" id="final-moves">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="resetGame(); closeModal();">
+                        <i class="fas fa-play"></i>
+                        Zagraj ponownie
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>Jak grać?</h3>
+            <div class="instruction-grid">
+                <div class="instruction-item">
+                    <div class="instruction-icon">🎯</div>
+                    <p>Używaj strzałek lub WASD do przesuwania kafelków</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">🔗</div>
+                    <p>Kafelki o tej samej wartości łączą się w jeden</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">🎯</div>
+                    <p>Celem jest dotarcie do kafelka 2048</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">⚠️</div>
+                    <p>Gra kończy się gdy plansza się zapełni</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="floating-number">2</div>
+        <div class="floating-number">4</div>
+        <div class="floating-number">8</div>
+        <div class="floating-number">16</div>
+        <div class="floating-number">32</div>
+        <div class="floating-number">64</div>
+        <div class="floating-number">128</div>
+        <div class="floating-number">256</div>
+        <div class="floating-number">512</div>
+        <div class="floating-number">1024</div>
+        <div class="floating-number">2048</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
